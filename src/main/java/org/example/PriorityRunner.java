@@ -6,13 +6,16 @@ package org.example;
  * Запустити 3 потоки із пріоритетами (min, max, norm).
  * За допомогою циклу for виведемо на екран значення від 1 до 50 і вкажемо, який саме потік цю операцію робить.
  */
-public class Main {
+public class PriorityRunner {
     public static void main(String[] args) {
-        Thread max = new Thread();
-        Thread min = new Thread();
-        Thread norm = new Thread();
-        max.start();
-        min.start();
-        norm.start();
+        PriorityThread maxPriority = new PriorityThread("Max Priority");
+        PriorityThread minPriority = new PriorityThread("Min Priority");
+        PriorityThread normPriority = new PriorityThread("Norm Priority");
+        maxPriority.setPriority(Thread.MAX_PRIORITY);
+        minPriority.setPriority(Thread.MIN_PRIORITY);
+        normPriority.setPriority(Thread.NORM_PRIORITY);
+        maxPriority.start();
+        minPriority.start();
+        normPriority.start();
     }
 }
